@@ -1,0 +1,6 @@
+{
+  "hello": "Terve!",
+  "name": "Minun nimi on {name}",
+  "time": "Kello on {now, time}",
+  "candy": "Minulla {count, plural, =0 {ei ole karkkeja :(} =1 {on yksi karkki} other {on # karkkia}}"
+}

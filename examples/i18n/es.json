@@ -1,0 +1,5 @@
+{
+  "hello": "Hola!",
+  "name": "Mi nombre es {name}" ,
+  "time": "Tiempo es {now, time}"
+}

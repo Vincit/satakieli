@@ -1,0 +1,6 @@
+{
+  "hello": "Hej!",
+  "name": "Jag heter {name}",
+  "time": "Clockan är {now ,time}",
+  "candy": "Jag har {count, plural, =0 {inget godis :(} =1 {en godis} other {# godis}}"
+}
