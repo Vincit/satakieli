@@ -13,8 +13,14 @@
       out
       (throw (ex-info "Could not compile formats" result)))))
 
-(defmacro deformats [sym dir]
-  "Compiles messageformat strings from directory dir using messageformat.js"
-  (let [code (-> (exec-messageformat dir) wrap-closure)]
+(defmacro deformats [sym dir & kwarg-opts]
+  "Compiles messageformat strings from directory dir using messageformat.js
+   opts: keywords? "
+  (let [{:keys [keywords?]
+         :or   {keywords? false}} (apply hash-map kwarg-opts)
+        code (-> (exec-messageformat dir) wrap-closure)]
     `(def ~sym (-> (js/eval ~code)
-                   (cljs.core/js->clj)))))
+                   (cljs.core/js->clj)
+                   (cljs.core/cond->
+                     ~keywords?
+                     (clojure.walk/keywordize-keys))))))

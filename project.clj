@@ -1,4 +1,4 @@
-(defproject vincit/satakieli "0.2.0"
+(defproject vincit/satakieli "0.2.1"
   :description "Wrapper around messageformat.js and Java implementation. Provides helper for precompiling messageformat."
   :url "https://github.com/Vincit/satakieli"
   :license {:name "Eclipse Public License"
@@ -29,8 +29,6 @@
   :doo {:build "test"
         :alias {:browsers [:chrome :firefox]
                 :headless [:chrome-headless]}}
-
-  :prep-tasks [["shell" "npm" "install"]]
 
   :cljsbuild {:builds
               [{:id           "dev"
