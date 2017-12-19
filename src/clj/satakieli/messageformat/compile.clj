@@ -1,4 +1,5 @@
 (ns satakieli.messageformat.compile
+  (:require [clojure.java.io :as io])
   (:import (java.util Locale)
            (com.ibm.icu.text MessageFormat)))
 

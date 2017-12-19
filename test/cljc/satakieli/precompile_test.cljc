@@ -1,8 +1,11 @@
 (ns satakieli.precompile-test
-  (:require [cljs.test :refer-macros [deftest is testing]]
-            [satakieli.format :as sf])
-  (:require-macros
-    [satakieli.messageformat.pre-compile :as pc]))
+  (:require
+    #?(:clj [clojure.test :refer [deftest is testing]]
+       :cljs [cljs.test :refer-macros [deftest is testing]])
+            [satakieli.format :as sf]
+    #?(:clj
+            [satakieli.messageformat.pre-compile :as pc]))
+  #?(:cljs (:require-macros [satakieli.messageformat.pre-compile :as pc])))
 
 
 (pc/deformats translations "examples/i18n")
@@ -30,4 +33,6 @@
   (testing "Simple translation kw"
     (check-simple translations-kw true))
   (testing "Plural kw"
-    (check-plural translations-kw true)))
+    (check-plural translations-kw true))
+  (testing "Deep path"
+    (is (= "I'm really deep" (sf/translate translations-kw [:en :some :deep :path :key])))))

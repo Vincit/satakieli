@@ -1,4 +1,4 @@
-(defproject vincit/satakieli "0.2.1"
+(defproject vincit/satakieli "0.2.2"
   :description "Wrapper around messageformat.js and Java implementation. Provides helper for precompiling messageformat."
   :url "https://github.com/Vincit/satakieli"
   :license {:name "Eclipse Public License"
@@ -11,7 +11,8 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.946"]
                  [org.clojure/core.async "0.3.443"]
-                 [com.ibm.icu/icu4j "60.1"]]
+                 [com.ibm.icu/icu4j "60.1"]
+                 [cheshire "5.8.0"]]
 
   :plugins [[lein-figwheel "0.5.14"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
