@@ -1,4 +1,4 @@
-(ns satakieli.messageformat.pre-compile
+(ns satakieli.messageformat.load
   (:require [clojure.walk :as walk]
             [clojure.java.io :as io]
             [cheshire.core :as json]

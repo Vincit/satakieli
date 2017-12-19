@@ -56,11 +56,17 @@ npm install --save-dev messageformat
 ```
 Define translations in json files named \<locale\>.json ie. en.json (see examples/i18n).
 
-
+Frontend:
 ```clj
 (ns satakieli.example.translations
   (:require-macros [satakieli.messageformat.pre-compile :as pc]))
   
+(pc/deformats translations "examples/i18n")
+```
+Backend:
+```clj
+(require '[satakieli.messageformat.load :as pc])
+
 (pc/deformats translations "examples/i18n")
 ```
 

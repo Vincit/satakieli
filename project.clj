@@ -1,4 +1,4 @@
-(defproject vincit/satakieli "0.2.2"
+(defproject vincit/satakieli "0.2.3"
   :description "Wrapper around messageformat.js and Java implementation. Provides helper for precompiling messageformat."
   :url "https://github.com/Vincit/satakieli"
   :license {:name "Eclipse Public License"
