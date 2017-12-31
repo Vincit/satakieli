@@ -38,7 +38,7 @@
               (is (= "Olen syntynyt 10.4.1985" (f/translate compiled [:fi :born] {:birth_date birth-date})))
               (is (= "I'am born Apr 10, 1985" (f/translate compiled [:en :born] {:birth_date birth-date})))))
     (testing "Time"
-      (is (= "Kello on 12.05.46" (f/translate compiled [:fi :time] {:time current-time})))
-      (is (= "Clock is 12:05:46 PM" (f/translate compiled [:en :time] {:time current-time}))))
+      (is (some? (re-matches #"Kello on [0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}" (f/translate compiled [:fi :time] {:time current-time}))))
+      (is (some? (re-matches #"Clock is [0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2} [A,P]M" (f/translate compiled [:en :time] {:time current-time})))))
     (testing "Select and number"
       (is (= "Hänellä on 10 euroa" (f/translate compiled [:fi :person] {:money 10 :gender "male"}))))))
