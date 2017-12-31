@@ -1,6 +1,7 @@
 # Satakieli i18n library
-
 [![Clojars Project](https://img.shields.io/clojars/v/vincit/satakieli.svg)](https://clojars.org/vincit/satakieli)
+[![Build Status](https://travis-ci.org/Vincit/satakieli.svg?branch=master)](https://travis-ci.org/Vincit/satakieli)
+ 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Thrush_nightingale2_by_Daniel_Bastaja.jpg" height="250">
 
