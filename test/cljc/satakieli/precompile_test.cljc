@@ -4,7 +4,7 @@
        :cljs [cljs.test :refer-macros [deftest is testing]])
             [satakieli.format :as sf]
     #?(:clj [satakieli.messageformat.load :as pc]))
-  #?(:cljs (:require-macros [satakieli.messageformat.load :as pc])))
+  #?(:cljs (:require-macros [satakieli.messageformat.pre-compile :as pc])))
 
 
 (pc/deformats translations "examples/i18n")
