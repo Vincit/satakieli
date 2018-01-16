@@ -1,8 +1,14 @@
-language:
-  - clojure
-  - javascript
+sudo: required
+dist: trusty
+cache:
+  directories:
+    - $HOME/.m2
+    - node_modules
 addons:
-  chrome: stable
+    chrome: stable
+before_script:
+    - "sudo chown root /opt/google/chrome/chrome-sandbox"
+    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 install:
   - npm install
   - npm install -g karma-cli
@@ -10,3 +16,4 @@ script:
   - lein eastwood
   - lein test
   - lein doo chrome-headless once
+
