@@ -24,8 +24,7 @@
     (doall
       (for [locale (-> translations keys)
             key    (-> translations first second keys)]
-        (println (f/translate translations [locale key] args))))
-    nil))
+        (println (f/translate translations [locale key] args))))))
 
 (defn say-hello! [lang]
   (println (f/translate translations [lang "hello"])))

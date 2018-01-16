@@ -9,9 +9,9 @@
     :default (str el)))
 
 (defn translate
-  ([compiled path args]
-   "Translates path in compiled translation map using messageformat with given arguments
+  "Translates path in compiled translation map using messageformat with given arguments
    returns translation or path joined as string when translation is not found"
+  ([compiled path args]
    (or (-> (get-in compiled path)
            (msgf/msg-format (walk/stringify-keys args)))
        (str/join "." (map format-path-elem path))))

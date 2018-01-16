@@ -17,7 +17,8 @@
   :plugins [[lein-figwheel "0.5.14"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
             [lein-shell "0.5.0"]
-            [lein-doo "0.1.8"]]
+            [lein-doo "0.1.8"]
+            [jonase/eastwood "0.2.5"]]
 
   :figwheel-watch {:dir          "examples/i18n"
                    :file-pattern "*.json"

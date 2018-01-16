@@ -26,7 +26,7 @@
     (testing "Basic translation"
       (is (= (f/translate compiled [:fi :hello]) "Terve!")))
     (testing "Missing translation"
-      (is (= (f/translate compiled [:en :hello] "en.hello"))))
+      (is (= (f/translate compiled [:en :hello]) "en.hello")))
     (testing "Plural"
       (is (= (f/translate compiled [:fi :elevator-troll] {:troll_count 0})
              "mikään ei sihissyt hississä"))

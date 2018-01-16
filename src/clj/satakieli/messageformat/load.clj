@@ -33,7 +33,10 @@
          (map (partial load-file* root-segments))
          (reduce #(apply assoc-in %1 %2) {}))))
 
-(defmacro deformats [sym directory & kw-opts]
+(defmacro deformats
+  "Compiles messageformat strings from directory dir using messageformat.js
+   opts: keywords? "
+  [sym directory & kw-opts]
   (let [{:keys [keywords?]} (apply hash-map kw-opts)
         translations (cond-> (load-translations directory)
                              keywords?

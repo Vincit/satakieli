@@ -13,9 +13,10 @@
       out
       (throw (ex-info "Could not compile formats" result)))))
 
-(defmacro deformats [sym dir & kwarg-opts]
+(defmacro deformats
   "Compiles messageformat strings from directory dir using messageformat.js
    opts: keywords? "
+  [sym dir & kwarg-opts]
   (let [{:keys [keywords?]
          :or   {keywords? false}} (apply hash-map kwarg-opts)
         code (-> (exec-messageformat dir) wrap-closure)]
