@@ -3,12 +3,15 @@
     #?(:clj [clojure.test :refer [deftest is testing]]
        :cljs [cljs.test :refer-macros [deftest is testing]])
             [satakieli.format :as sf]
-    #?(:clj [satakieli.messageformat.load :as pc]))
+    #?(:clj
+            [satakieli.messageformat.load :as pc]))
   #?(:cljs (:require-macros [satakieli.messageformat.pre-compile :as pc])))
 
 
 (pc/deformats translations "examples/i18n")
 (pc/deformats translations-kw "examples/i18n" :keywords? true)
+
+(pc/deformats translations-2-kw "examples/i18n2" :keywords? true)
 
 (defn- path [keywords? & ks]
   (if keywords?
@@ -34,4 +37,8 @@
   (testing "Plural kw"
     (check-plural translations-kw true))
   (testing "Deep path"
-    (is (= "I'm really deep" (sf/translate translations-kw [:en :some :deep :path :key])))))
+    (is (= "I'm really deep" (sf/translate translations-kw [:en :some :deep :path :key]))))
+  (testing "Deep path en"
+    (is (= "Hello world" (sf/translate translations-2-kw [:en :hello :world]))))
+  (testing "Deep path fi"
+    (is (= "Hei maailma" (sf/translate translations-2-kw [:fi :hello :world])))))

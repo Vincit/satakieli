@@ -59,6 +59,7 @@
        :reagent-render
                                (fn []
                                  [:div
+                                  [:div (translate "some.deep.path.key")]
                                   [:div (translate "hello")]
                                   [:div (translate "name" {:name @name})]
                                   [:div (translate "time" {:now @now})]
@@ -70,6 +71,4 @@
 (r/render [helloapp] (.getElementById js/document "app"))
 
 (comment
-  translations
-  (sf/translate translate ["en" "hello"])
-  (translate "hello"))
+  translations)
