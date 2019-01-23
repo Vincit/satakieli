@@ -1,6 +1,6 @@
-sudo: required
-dist: trusty
-language: clojure
+language:
+  - clojure
+  - javascript
 cache:
   directories:
     - $HOME/.m2
@@ -10,11 +10,7 @@ addons:
 install:
   - npm install
   - npm install -g karma-cli
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
 script:
   - lein eastwood
   - lein test
-  - lein doo chrome once
+  - lein doo chrome-headless once
