@@ -24,14 +24,24 @@
   [(drop-root-segments root-segments (path-segments file))
    (json/decode (slurp file))])
 
+(defn merge-deep [m1 m2]
+  (merge-with (fn [v1 v2]
+                (if (and (map? v1) (map? v2))
+                  (merge-deep v1 v2)
+                  v2
+                  )) m1 m2))
+
+(defn merge-translations [result [path translations]]
+  (update-in result path #(merge-deep % translations)))
+
 (defn load-translations [directory]
-  (let [root          (io/file directory)
+  (let [root (io/file directory)
         root-segments (path-segments root)]
     (->> (file-seq root)
          (filter #(.isFile %))
          (filter #(= "json" (FilenameUtils/getExtension (str %))))
          (map (partial load-file* root-segments))
-         (reduce #(apply assoc-in %1 %2) {}))))
+         (reduce merge-translations {}))))
 
 (defmacro deformats
   "Compiles messageformat strings from directory dir using messageformat.js
